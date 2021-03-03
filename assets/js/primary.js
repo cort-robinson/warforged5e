@@ -1,8 +1,12 @@
+/*
+primary.js - main js file
+*/
 const monstersList = document.getElementById('monstersList');
 const searchBar = document.getElementById('searchBar');
 let monsters = [];
 
 searchBar.addEventListener('keyup', (e) => {
+  // Search bar function - listens to key strokes
   const searchString = e.target.value.toLowerCase();
   const filteredMonsters = monsters.filter((monster) => {
     return (
@@ -13,6 +17,7 @@ searchBar.addEventListener('keyup', (e) => {
 });
 
 const loadMonsters = async () => {
+  // Load the monsters API list and calls displayMonsters
   try {
     const res = await $.get('https://www.dnd5eapi.co/api/monsters/');
     monsters = await res.results;
@@ -23,6 +28,7 @@ const loadMonsters = async () => {
 }
 
 const displayMonsters = (monsters) => {
+  // Takes list from loadMonsters and outputs that into the html
   const htmlString = monsters
     .map((monster) => {
       return `
@@ -36,3 +42,4 @@ const displayMonsters = (monsters) => {
 }
 
 loadMonsters();
+// Call loadMonsters to initiate
