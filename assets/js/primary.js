@@ -42,10 +42,10 @@ $(document).ready(function () {
       const htmlString = monstersObjs
       .map((monsterSelected) => {
         return `<li class="monsterSelected">
-                <button class="displayStats" id=${monsterSelected.index}>
-                ${monsterSelected.name}
-                </button>&nbsp;
-                <input type="image" src="images/rmvicon.png"/>
+                  <button class="displayStats" id=${monsterSelected.index}>
+                    ${monsterSelected.name}
+                  </button>&nbsp;
+                  <input type="image" src="assets/images/rmvicon.png" onfocus="removeMonster(${monsterSelected})"/>
                 </li>`;
       })
       .join('');
@@ -54,7 +54,6 @@ $(document).ready(function () {
   
     const displayStats = (monster) => {
       // Displays MonsterObjs list
-      console.log(monster); // temporary command for testing purposes
       const htmlString = 
         `<li class="monsterStats">Monster: ${monster.name}</li>
         <li class="monsterStats">HP: ${monster.hit_points}</li>
@@ -67,6 +66,15 @@ $(document).ready(function () {
         <li class="monsterStats">Wisdom: ${monster.wisdom}</li>`;
       $('#monsterStats').html(htmlString);
     };
+
+    function removeMonster(monster) {
+      console.log("hi")
+      const index = monstersObjs.indexOf(monster);
+      if (index > -1) {
+        monstersObjs.splice(index, 1);
+      }
+      displaySelected(monstersObjs);
+    };
   
     loadMonsters(); // Call loadMonsters to initiate
   
@@ -74,6 +82,7 @@ $(document).ready(function () {
       $.when(
         $.getJSON('https://www.dnd5eapi.co/api/monsters/' + $(this.activeElement).attr('id'))
     ).done( function(json) {
+        json.id = Math.floor((Math.random() * 1000) + 1);
         monstersObjs.push(json);
         displaySelected(monstersObjs);
     });
@@ -86,6 +95,8 @@ $(document).ready(function () {
         displayStats(json);
     });
     });
+  
+    $('#removeButton').focus( () => {});
   
     $('#searchBar').focus( () => {
         $('#monstersList').removeClass('inactive');
