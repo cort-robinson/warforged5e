@@ -1,41 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-    <title>Warforged5e</title>
-    <meta name="description" content="Warforged5e" />
-    <meta name="author" content="Cort Robinson and Jacob Scott" />
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&amp;display=swap" />
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Warforged5e</title>
+  <meta name="description" content="Warforged5e">
+  <meta name="author" content="Cort Robinson and Jacob Scott">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/skeleton.css">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
 </head>
-
 <body>
-    <nav class="navbar navbar-light navbar-expand-md bg-danger">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Warforged5e</a><button data-toggle="collapse" class="navbar-toggler"
-                data-target="#navcol-1">
-                <span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-    </nav>
-    <div class="container">
-        <h1>Monsters</h1>
-        <div id="searchWrapper">
-            <input
-                type="text"
-                name="searchBar"
-                id="searchBar"
-                placeholder="Search for monsters"
-            />
-        </div>
-        <ul id="monstersList"></ul>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/primary.js"></script>
-</body>
 
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <nav class="navBar" id="mainNavBar">
+        <a href="index.html"><h3>Warforged5e</h3></a>
+    </nav>
+<div class="container">
+    <h1>Monsters</h1>
+    <div id="searchWrapper">
+        <input
+            type="text"
+            name="searchBar"
+            id="searchBar"
+            placeholder="Search for monsters"
+        />
+        <ul class="inactive" id="monstersList"></ul>
+    </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="assets/js/primary.js"></script>
+</body>
 </html>
