@@ -30,26 +30,34 @@ $(document).ready(function () {
       // Takes list from loadMonsters and outputs that into the html
       const htmlString = monsters
       .map((monster) => {
-        return `
-        <li class="monster"><button class="addMonster" id=${monster.index}>Add</button>&nbsp;${monster.name}</li>`;
+        return `<li class="monster"><button class="addMonster" id=${monster.index}>Add</button>&nbsp;${monster.name}</li>`;
       })
       .join('');
       $('#monstersList').html(htmlString);
     };
+
+    const displaySelected = (monstersObjs) => {
+      // Displays MonsterObjs list
+      console.log(monstersObjs); // temporary command for testing purposes
+      const htmlString = monstersObjs
+      .map((monsterSelected) => {
+        return `<li class="monsterSelected">${monsterSelected.name}</li>`;
+      })
+      .join('');
+      $('#monstersSelected').html(htmlString);
+    };
   
-    loadMonsters();
-    // Call loadMonsters to initiate
+    loadMonsters(); // Call loadMonsters to initiate
   
     $('#monstersList').on('click', '.addMonster', () => {
       $.when(
         $.getJSON('https://www.dnd5eapi.co/api/monsters/' + $(this.activeElement).attr('id'))
     ).done( function(json) {
         monstersObjs.push(json);
-        // temporary command for testing purposes
-        console.log(monstersObjs);
+        displaySelected(monstersObjs);
     });
     });
-
+  
     $('#searchBar').focus( () => {
         $('#monstersList').removeClass('inactive');
     }) 
