@@ -28,26 +28,29 @@ $(document).ready(function () {
 
   const displayMonsters = (monsters) => {
     // Takes list from loadMonsters and outputs that into the html
-    for (monster of monsters) {
-      $('#monstersList').append(
-        `
-        <li class="monster">
+    const htmlString = monsters
+    .map((monster) => {
+      return `
+      <li class="monster">
             <h2><button type="button" class="addMonster" id=${monster.index}>Add</button>&nbsp;${monster.name}</h2>
-        </li>
-      `
-      );
-    }
-    $('#monstersList').on('click', '.addMonster', () => {
-      $.when(
-        $.getJSON('https://www.dnd5eapi.co/api/monsters/' + $(this.activeElement).attr('id'))
-    ).done( function(json) {
-        monstersObjs.push(json);
-    });
-    console.log(monstersObjs);
-    });
+      </li>
+    `;
+    })
+    .join('');
+    $('#monstersList').html(htmlString);
   };
 
   loadMonsters();
-  // Call loadMonsters to initiate $(this.activeElement).attr('id')
+  // Call loadMonsters to initiate
+
+  $('#monstersList').on('click', '.addMonster', () => {
+    $.when(
+      $.getJSON('https://www.dnd5eapi.co/api/monsters/' + $(this.activeElement).attr('id'))
+  ).done( function(json) {
+      monstersObjs.push(json);
+      // temporary command for testing purposes
+      console.log(monstersObjs);
+  });
+  });
 
 });
