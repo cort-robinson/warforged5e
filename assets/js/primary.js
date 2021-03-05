@@ -54,4 +54,3 @@ $(document).ready(function () {
         $('#monstersList').removeClass('inactive');
     }) 
   });
-  
