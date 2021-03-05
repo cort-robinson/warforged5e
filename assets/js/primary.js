@@ -41,10 +41,26 @@ $(document).ready(function () {
       console.log(monstersObjs); // temporary command for testing purposes
       const htmlString = monstersObjs
       .map((monsterSelected) => {
-        return `<li class="monsterSelected">${monsterSelected.name}</li>`;
+        return `<li class="monsterSelected"><button class="displayStats" id=${monsterSelected.index}>${monsterSelected.name}</button>&nbsp;</li>`;
       })
       .join('');
       $('#monstersSelected').html(htmlString);
+    };
+  
+    const displayStats = (monster) => {
+      // Displays MonsterObjs list
+      console.log(monster); // temporary command for testing purposes
+      const htmlString = 
+        `<li class="monsterStats">Monster: ${monster.name}</li>
+        <li class="monsterStats">HP: ${monster.hit_points}</li>
+        <li class="monsterStats">AC: ${monster.armor_class}</li>
+        <li class="monsterStats">Charisma: ${monster.charisma}</li>
+        <li class="monsterStats">Constitution: ${monster.constitution}</li>
+        <li class="monsterStats">Dexterity: ${monster.dexterity}</li>
+        <li class="monsterStats">Intelligence: ${monster.intelligence}</li>
+        <li class="monsterStats">Strength: ${monster.strength}</li>
+        <li class="monsterStats">Wisdom: ${monster.wisdom}</li>`;
+      $('#monsterStats').html(htmlString);
     };
   
     loadMonsters(); // Call loadMonsters to initiate
@@ -55,6 +71,14 @@ $(document).ready(function () {
     ).done( function(json) {
         monstersObjs.push(json);
         displaySelected(monstersObjs);
+    });
+    });
+  
+    $('#monstersSelected').on('click', '.displayStats', () => {
+      $.when(
+        $.getJSON('https://www.dnd5eapi.co/api/monsters/' + $(this.activeElement).attr('id'))
+    ).done( function(json) {
+        displayStats(json);
     });
     });
   
