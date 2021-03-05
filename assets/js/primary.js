@@ -41,7 +41,12 @@ $(document).ready(function () {
       console.log(monstersObjs); // temporary command for testing purposes
       const htmlString = monstersObjs
       .map((monsterSelected) => {
-        return `<li class="monsterSelected"><button class="displayStats" id=${monsterSelected.index}>${monsterSelected.name}</button>&nbsp;</li>`;
+        return `<li class="monsterSelected">
+                <button class="displayStats" id=${monsterSelected.index}>
+                ${monsterSelected.name}
+                </button>&nbsp;
+                <input type="image" src="images/rmvicon.png"/>
+                </li>`;
       })
       .join('');
       $('#monstersSelected').html(htmlString);
