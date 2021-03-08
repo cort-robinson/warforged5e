@@ -76,7 +76,7 @@ $(document).ready(function () {
       $.when(
         $.getJSON('https://www.dnd5eapi.co/api/monsters/' + $(this.activeElement).attr('id'))
     ).done( function(json) {
-        json.initiative = "Roll!"
+        json.initiative = "Roll for it!"
         monstersObjs.push(json);
         displaySelected(monstersObjs);
     });
