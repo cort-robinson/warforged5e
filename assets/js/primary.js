@@ -48,6 +48,7 @@ $(document).ready(function () {
                   <td>${monsterSelected.name}<input class="removeMonster" type="image" src="assets/images/rmvicon.png" id=${monsterSelected.id}/></td>
                   <td>${monsterSelected.initiative}</td>
                   <td>${monsterSelected.hit_points}</td>
+                  <td>${monsterSelected.armor_class}</td>
                   <td><button class="displayStats" id=${monsterSelected.index}>
                     Stats
                   </button></td>;
