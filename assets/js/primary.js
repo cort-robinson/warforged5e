@@ -43,11 +43,11 @@ $(document).ready(function () {
       const htmlString = monstersObjs
       .map((monsterSelected) => {
         return `<li class="monsterSelected">
-                    Initiative Roll: ${monsterSelected.initiative} <br />
+                  <h3>${monsterSelected.name}<input class="removeMonster" type="image" src="assets/images/rmvicon.png" id=${monsterSelected.id}/></h3>
+                  Initiative Roll: ${monsterSelected.initiative} <br/>
                   <button class="displayStats" id=${monsterSelected.index}>
-                    ${monsterSelected.name}
+                    Stats
                   </button>&nbsp;
-                  <input class="removeMonster" type="image" src="assets/images/rmvicon.png" id=${monsterSelected.id}/>
                 </li>`;
       })
       .join('');
