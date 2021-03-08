@@ -39,7 +39,9 @@ $(document).ready(function () {
     const displaySelected = (monstersObjs) => {
       // Displays MonsterObjs list
       // console.log(monstersObjs); // temporary command for testing purposes
-      
+      monstersObjs.forEach(function (item, index) {
+        item.id = index;
+      });
       const htmlString = monstersObjs
       .map((monsterSelected) => {
         return `<li class="monsterSelected">
