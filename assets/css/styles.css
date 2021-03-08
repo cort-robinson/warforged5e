@@ -11,3 +11,178 @@
 .inactive {
     display: none;
 }
+
+html {
+    background-color: #181a1b !important;
+}
+html, body, input, textarea, select, button {
+    background-color: #181a1b;
+}
+html, body, input, textarea, select, button {
+    border-color: #736b5e;
+    color: #e8e6e3;
+}
+a {
+    color: #3391ff;
+}
+table {
+    border-color: #545b5e;
+}
+::placeholder {
+    color: #b2aba1;
+}
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    background-color: #555b00 !important;
+    color: #e8e6e3 !important;
+}
+::-webkit-scrollbar {
+    background-color: #202324;
+    color: #aba499;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #454a4d;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #575e62;
+}
+::-webkit-scrollbar-thumb:active {
+    background-color: #484e51;
+}
+::-webkit-scrollbar-corner {
+    background-color: #181a1b;
+}
+::selection {
+    background-color: #004daa !important;
+    color: #e8e6e3 !important;
+}
+::-moz-selection {
+    background-color: #004daa !important;
+    color: #e8e6e3 !important;
+}
+
+/* Invert Style */
+.jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, span#closed_text > img[src^="https://www.gstatic.com/images/branding/googlelogo"], span[data-href^="https://www.hcaptcha.com/"] > #icon, embed[type="application/pdf"] {
+    filter: invert(100%) hue-rotate(180deg) contrast(90%) !important;
+}
+
+/* Variables Style */
+:root {
+   --darkreader-neutral-background: #131516;
+   --darkreader-neutral-text: #d8d4cf;
+   --darkreader-selection-background: #004daa;
+   --darkreader-selection-text: #e8e6e3;
+}
+
+/* Modified CSS */
+a {
+    background-color: transparent;
+}
+a:active,
+a:hover {
+    outline-color: initial;
+}
+abbr[title] {
+    border-bottom-color: initial;
+}
+mark {
+    background-image: initial;
+    background-color: rgb(204, 204, 0);
+    color: rgb(232, 230, 227);
+}
+img {
+    border-color: initial;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+    color: inherit;
+}
+fieldset {
+    border-color: rgb(66, 71, 74);
+}
+legend {
+    border-color: initial;
+}
+body {
+    color: rgb(211, 207, 201);
+}
+a {
+    color: rgb(228, 57, 57);
+}
+a:hover {
+    color: rgb(241, 63, 63); 
+}
+.button, button, input[type="submit"], input[type="reset"], input[type="button"] {
+    color: rgb(178, 172, 162);
+    text-decoration-color: initial;
+    background-color: transparent;
+    border-color: rgb(67, 73, 76); 
+}
+.button:hover, button:hover, input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover, .button:focus, button:focus, input[type="submit"]:focus, input[type="reset"]:focus, input[type="button"]:focus {
+    color: rgb(200, 195, 188);
+    border-color: rgb(82, 88, 92); outline-color: initial; 
+}
+.button.button-primary, button.button-primary, input[type="submit"].button-primary, input[type="reset"].button-primary, input[type="button"].button-primary {
+    color: rgb(232, 230, 227);
+    background-color: rgb(170, 12, 12);
+    border-color: rgb(156, 11, 11); 
+}
+.button.button-primary:hover, button.button-primary:hover, input[type="submit"].button-primary:hover, input[type="reset"].button-primary:hover, input[type="button"].button-primary:hover, .button.button-primary:focus, button.button-primary:focus, input[type="submit"].button-primary:focus, input[type="reset"].button-primary:focus, input[type="button"].button-primary:focus {
+    color: rgb(232, 230, 227);
+    background-color: rgb(175, 24, 24);
+    border-color: rgb(159, 22, 22); 
+}
+input[type="email"], input[type="number"], input[type="search"], input[type="text"], input[type="tel"], input[type="url"], input[type="password"],
+textarea,
+select {
+    background-color: rgb(24, 26, 27);
+    border-color: rgb(61, 66, 69); box-shadow: none; 
+}
+input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="text"]:focus, input[type="tel"]:focus, input[type="url"]:focus, input[type="password"]:focus,
+textarea:focus,
+select:focus {
+    border-color: rgb(156, 11, 11);
+    outline-color: initial;
+}
+ul {
+    list-style-image: initial;
+}
+ol {
+    list-style-image: initial;
+}
+code {
+    background-image: initial;
+    background-color: rgb(32, 35, 36);
+    border-color: rgb(56, 61, 64);
+}
+th,
+td {
+    border-bottom-color: rgb(56, 61, 64);
+}
+hr {
+    border-top-color: rgb(56, 61, 64);
+}
+.navBar {
+    background-color: rgb(176, 16, 48);
+}
+.navBar a {
+    text-decoration-color: initial;
+}
+
+/* Override Style */
+.vimvixen-hint {
+    background-color: #7b5300 !important;
+    border-color: #d8b013 !important;
+    color: #f3e8c8 !important;
+}
+::placeholder {
+    opacity: 0.5 !important;
+}
+a[href="https://coinmarketcap.com/"] > svg[width="94"][height="16"] > path {
+    fill: var(--darkreader-neutral-text) !important;
+}
+
