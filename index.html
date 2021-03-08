@@ -3,59 +3,67 @@
 
 <head>
 
-  <!-- Basic Page Needs
+    <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-  <title>Warforged5e</title>
-  <meta name="description" content="Warforged5e">
-  <meta name="author" content="Cort Robinson and Jacob Scott">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <title>Warforged5e</title>
+    <meta name="description" content="Warforged5e">
+    <meta name="author" content="Cort Robinson and Jacob Scott">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  <!-- Mobile Specific Metas
+    <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- FONT
+    <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 
-  <!-- CSS
+    <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="assets/css/normalize.css">
-  <link rel="stylesheet" href="assets/css/skeleton.css">
-  <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/skeleton.css">
+    <link rel="stylesheet" href="assets/css/styles.css" />
 
-  <!-- Favicon
+    <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
 
 </head>
 
 <body>
 
-  <!-- Primary Page Layout
+    <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <nav class="navBar" id="mainNavBar">
-    <a href="index.html">
-      <h3>Warforged5e</h3>
-    </a>
-  </nav>
-  <div class="container">
-    <h1>Monsters</h1>
-    <div id="searchWrapper">
-      <input type="text" name="searchBar" id="searchBar" placeholder="Search for monsters" />
-      <ul class="inactive" id="monstersList"></ul>
+    <div class="container">
+        <div class="row">
+            <div class="twelve columns">
+            <nav class="navBar" id="mainNavBar">
+                <a href="index.html">
+                    <h3>Warforged5e</h3>
+                </a>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="four columns">
+                <h1>Monsters</h1>
+                <div id="searchWrapper">
+                    <input type="text" name="searchBar" id="searchBar" placeholder="Search for monsters" />
+                    <ul class="inactive" id="monstersList"></ul>
+                </div>
+            </div>
+            <div class="four columns" id="selectedMonsters">
+                <h1>Selected Monsters</h1>
+                <button class="initiativeRoll">Roll for initiative!</button>
+                <ul id="monstersSelected" style="list-style: none;"></ul>
+            </div>
+            <div class="four columns">
+                <h1>Monster Stats</h1>
+                <ul id="monsterStats"></ul>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="container" id="selectedMonsters">
-    <h1>Selected Monsters</h1>
-    <button class="initiativeRoll">Roll for initiative!</button>
-    <ul id="monstersSelected" style="list-style: none;"></ul>
-  </div>
-  <div class="container">
-    <h1>Monster Stats</h1>
-    <ul id="monsterStats"></ul>
-  </div>
     <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <script src="assets/js/primary.js"></script>
