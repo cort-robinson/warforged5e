@@ -38,18 +38,22 @@ $(document).ready(function () {
 
     const displaySelected = (monstersObjs) => {
       // Displays MonsterObjs list
-      console.log(monstersObjs); // temporary command for testing purposes
+      // console.log(monstersObjs); // temporary command for testing purposes
+      monstersObjs.forEach(function (item, index) {
+        item.id = index;
+      });
       const htmlString = monstersObjs
       .map((monsterSelected) => {
         return `<li class="monsterSelected">
                   <button class="displayStats" id=${monsterSelected.index}>
                     ${monsterSelected.name}
                   </button>&nbsp;
-                  <input type="image" src="assets/images/rmvicon.png" onfocus="removeMonster(${monsterSelected})"/>
+                  <input class="removeMonster" type="image" src="assets/images/rmvicon.png" id=${monsterSelected.id}/>
                 </li>`;
       })
       .join('');
       $('#monstersSelected').html(htmlString);
+      //console.log(monstersObjs);
     };
   
     const displayStats = (monster) => {
@@ -67,22 +71,13 @@ $(document).ready(function () {
       $('#monsterStats').html(htmlString);
     };
 
-    function removeMonster(monster) {
-      console.log("hi")
-      const index = monstersObjs.indexOf(monster);
-      if (index > -1) {
-        monstersObjs.splice(index, 1);
-      }
-      displaySelected(monstersObjs);
-    };
-  
     loadMonsters(); // Call loadMonsters to initiate
   
     $('#monstersList').on('click', '.addMonster', () => {
       $.when(
         $.getJSON('https://www.dnd5eapi.co/api/monsters/' + $(this.activeElement).attr('id'))
     ).done( function(json) {
-        json.id = Math.floor((Math.random() * 1000) + 1);
+        var arrayLength = json.length;
         monstersObjs.push(json);
         displaySelected(monstersObjs);
     });
@@ -96,7 +91,11 @@ $(document).ready(function () {
     });
     });
   
-    $('#removeButton').focus( () => {});
+    $('#monstersSelected').on('click', '.removeMonster', () => {
+      const index = parseInt($(this.activeElement).attr('id'), 10);
+      monstersObjs.splice(index, 1);
+      displaySelected(monstersObjs);
+    });
   
     $('#searchBar').focus( () => {
         $('#monstersList').removeClass('inactive');
