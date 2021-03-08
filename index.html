@@ -38,27 +38,38 @@
     <div class="container">
         <div class="row">
             <div class="twelve columns">
-            <nav class="navBar" id="mainNavBar">
-                <a href="index.html">
-                    <h3>Warforged5e</h3>
-                </a>
+                <nav class="navBar" id="mainNavBar">
+                    <a href="index.html">
+                        <h3>Warforged5e</h3>
+                    </a>
                 </nav>
             </div>
         </div>
         <div class="row">
-            <div class="four columns">
+            <div class="three columns">
                 <h1>Monsters</h1>
                 <div id="searchWrapper">
                     <input type="text" name="searchBar" id="searchBar" placeholder="Search for monsters" />
                     <ul class="inactive" id="monstersList"></ul>
                 </div>
             </div>
-            <div class="four columns" id="selectedMonsters">
+            <div class="six columns" id="selectedMonsters">
                 <h1>Selected Monsters</h1>
                 <button class="initiativeRoll">Roll for initiative!</button>
-                <ul id="monstersSelected" style="list-style: none;"></ul>
+                <table class="u-full-width">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Initiative</th>
+                            <th>HP</th>
+                            <th>Stats</th>
+                        </tr>
+                    </thead>
+                    <tbody id="monstersSelected">
+                    </tbody>
+                </table>
             </div>
-            <div class="four columns">
+            <div class="three columns">
                 <h1>Monster Stats</h1>
                 <ul id="monsterStats"></ul>
             </div>
