@@ -39,12 +39,11 @@ $(document).ready(function () {
     const displaySelected = (monstersObjs) => {
       // Displays MonsterObjs list
       // console.log(monstersObjs); // temporary command for testing purposes
-      monstersObjs.forEach(function (item, index) {
-        item.id = index;
-      });
+      
       const htmlString = monstersObjs
       .map((monsterSelected) => {
         return `<li class="monsterSelected">
+                    Initiative Roll: ${monsterSelected.initiative} <br />
                   <button class="displayStats" id=${monsterSelected.index}>
                     ${monsterSelected.name}
                   </button>&nbsp;
@@ -53,7 +52,7 @@ $(document).ready(function () {
       })
       .join('');
       $('#monstersSelected').html(htmlString);
-      //console.log(monstersObjs);
+      console.log(monstersObjs);
     };
   
     const displayStats = (monster) => {
@@ -77,7 +76,7 @@ $(document).ready(function () {
       $.when(
         $.getJSON('https://www.dnd5eapi.co/api/monsters/' + $(this.activeElement).attr('id'))
     ).done( function(json) {
-        var arrayLength = json.length;
+        json.initiative = "Roll!"
         monstersObjs.push(json);
         displaySelected(monstersObjs);
     });
@@ -96,7 +95,18 @@ $(document).ready(function () {
       monstersObjs.splice(index, 1);
       displaySelected(monstersObjs);
     });
-  
+
+    $('#selectedMonsters').on('click', '.initiativeRoll', () => {
+      monstersObjs.forEach(function (item, index) {
+        item.initiative = (Math.ceil((item.dexterity - 10) / 2) + Math.floor(Math.random() * 20) + 1)
+      });
+      monstersObjs.sort((a, b) => (a.initiative < b.initiative) ? 1 : -1);
+      monstersObjs.forEach(function (item, index) {
+        item.id = index;
+      });
+      displaySelected(monstersObjs);
+    });
+
     $('#searchBar').focus( () => {
         $('#monstersList').removeClass('inactive');
     }) 
