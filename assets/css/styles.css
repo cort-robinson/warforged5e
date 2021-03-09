@@ -11,3 +11,11 @@
 .inactive {
     display: none;
 }
+
+.dropdown-content {
+    display: none;
+}
+
+.dropdown:focus-within .dropdown-content {
+    display: block;
+}

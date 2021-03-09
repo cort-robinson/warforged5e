@@ -24,10 +24,8 @@
     <link rel="stylesheet" href="assets/css/normalize.css">
     <link rel="stylesheet" href="assets/css/skeleton.css">
     <link rel="stylesheet" href="assets/css/styles.css" />
-    <link rel="stylesheet" href="assets/css/dark-theme.css"
-
-    <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="assets/css/dark-theme.css" <!-- Favicon
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
 
 </head>
@@ -49,13 +47,13 @@
         <div class="row">
             <div class="three columns">
                 <h1>Monsters</h1>
-                <div id="searchWrapper">
-                    <input type="text" name="searchBar" id="searchBar" placeholder="Search for monsters" />
-                    <ul class="inactive" id="monstersList"></ul>
+                <div class="dropdown" id="searchWrapper">
+                    <input class="dropbtn" type="text" name="searchBar" id="searchBar" placeholder="Search for monsters" />
+                        <ul class="dropdown-content" id="monstersList"></ul>
                 </div>
             </div>
             <div class="six columns" id="selectedMonsters">
-                <h1>Selected Monsters</h1>
+                <h1>Encounter</h1>
                 <button class="initiativeRoll">Roll for Initiative!</button>
                 <table class="u-full-width">
                     <thead>
