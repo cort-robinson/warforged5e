@@ -9,7 +9,6 @@
     <title>Warforged5e</title>
     <meta name="description" content="Warforged5e">
     <meta name="author" content="Cort Robinson and Jacob Scott">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -55,7 +54,8 @@
             <div class="six columns" id="selectedMonsters">
                 <h1>Encounter</h1>
                 <button class="initiativeRoll">Roll for Initiative!</button>
-                <table class="u-full-width">
+                <button class="update">Update</button>
+                <table id="editable">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -77,6 +77,7 @@
     </div>
     <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="assets/js/primary.js"></script>
 </body>
 

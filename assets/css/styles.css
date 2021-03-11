@@ -8,10 +8,6 @@
     text-decoration: none;
 }
 
-.inactive {
-    display: none;
-}
-
 .dropdown-content {
     display: none;
 }

@@ -1,6 +1,8 @@
 /*
 primary.js - main js file
 */
+var content = document.querySelector('[contenteditable]');
+
 $(document).ready(function () {
   const searchBar = document.getElementById('searchBar');
   let monsters = [];
@@ -45,12 +47,12 @@ $(document).ready(function () {
     const htmlString = monstersObjs
       .map((monsterSelected) => {
         return `<tr class="monsterSelected">
-                  <td contenteditable="True">${monsterSelected.name}</td>
-                  <td contenteditable="True">${monsterSelected.initiative}</td>
-                  <td contenteditable="True">${monsterSelected.hit_points}</td>
-                  <td contenteditable="True">${monsterSelected.armor_class}</td>
-                  <td><button class="displayStats" id=${monsterSelected.index}>Stats</button></td>;
-                  <td><input class="removeMonster" type="image" src="assets/images/rmvicon.png" id=${monsterSelected.id}/></td>
+                  <td class="name" id=${monsterSelected.id} contenteditable="True">${monsterSelected.name}</td>
+                  <td class="initiative" id=${monsterSelected.id} contenteditable="True">${monsterSelected.initiative}</td>
+                  <td class="hit_points" id=${monsterSelected.id} contenteditable="True">${monsterSelected.hit_points}</td>
+                  <td class="armor_class" id=${monsterSelected.id} contenteditable="True">${monsterSelected.armor_class}</td>
+                  <td contenteditable="False"><button class="displayStats" id=${monsterSelected.index}>Stats</button></td>;
+                  <td contenteditable="False"><input class="removeMonster" type="image" src="assets/images/rmvicon.png" id=${monsterSelected.id}/></td>
                 </tr>`;
       })
       .join('');
@@ -62,7 +64,6 @@ $(document).ready(function () {
     // Displays MonsterObjs list
     const htmlString = `<li class="monsterStats">Monster: ${monster.name}</li>
         <li class="monsterStats">HP: ${monster.hit_points}</li>
-        <li class="monsterStats">AC: ${monster.armor_class}</li>
         <li class="monsterStats">Charisma: ${monster.charisma}</li>
         <li class="monsterStats">Constitution: ${monster.constitution}</li>
         <li class="monsterStats">Dexterity: ${monster.dexterity}</li>
@@ -118,7 +119,41 @@ $(document).ready(function () {
     displaySelected(monstersObjs);
   });
 
-  $('#searchBar').focus(() => {
-    $('#monstersList').removeClass('inactive');
+  $('.update').on('click', () => {
+    $('.name').each((index, current) => {
+      let newValue = $(current).html();
+      let monsterIdx = $(current).attr('id');
+
+      if (newValue !== monstersObjs[monsterIdx].name) {
+        monstersObjs[monsterIdx].name = newValue;
+      }
+    });
+
+    $('.initiative').each((index, current) => {
+      let newValue = $(current).html();
+      let monsterIdx = $(current).attr('id');
+
+      if (newValue !== monstersObjs[monsterIdx].initiative) {
+        monstersObjs[monsterIdx].initiative = newValue;
+      }
+    });
+
+    $('.hit_points').each((index, current) => {
+      let newValue = $(current).html();
+      let monsterIdx = $(current).attr('id');
+
+      if (newValue !== monstersObjs[monsterIdx].hit_points) {
+        monstersObjs[monsterIdx].hit_points = newValue;
+      }
+    });
+
+    $('.armor_class').each((index, current) => {
+      let newValue = $(current).html();
+      let monsterIdx = $(current).attr('id');
+
+      if (newValue !== monstersObjs[monsterIdx].armor_class) {
+        monstersObjs[monsterIdx].armor_class = newValue;
+      }
+    });
   });
 });
