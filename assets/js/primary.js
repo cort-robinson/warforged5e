@@ -1,7 +1,6 @@
 /*
 primary.js - main js file
 */
-var content = document.querySelector('[contenteditable]');
 
 $(document).ready(function () {
   const searchBar = document.getElementById('searchBar');
@@ -130,7 +129,7 @@ $(document).ready(function () {
     });
 
     $('.initiative').each((index, current) => {
-      let newValue = $(current).html();
+      let newValue = parseInt($(current).html());
       let monsterIdx = $(current).attr('id');
 
       if (newValue !== monstersObjs[monsterIdx].initiative) {
@@ -139,7 +138,7 @@ $(document).ready(function () {
     });
 
     $('.hit_points').each((index, current) => {
-      let newValue = $(current).html();
+      let newValue = parseInt($(current).html());
       let monsterIdx = $(current).attr('id');
 
       if (newValue !== monstersObjs[monsterIdx].hit_points) {
@@ -148,12 +147,14 @@ $(document).ready(function () {
     });
 
     $('.armor_class').each((index, current) => {
-      let newValue = $(current).html();
+      let newValue = parseInt($(current).html());
       let monsterIdx = $(current).attr('id');
 
       if (newValue !== monstersObjs[monsterIdx].armor_class) {
         monstersObjs[monsterIdx].armor_class = newValue;
       }
+      monstersObjs.sort((a, b) => (a.initiative < b.initiative ? 1 : -1));
+      displaySelected(monstersObjs);
     });
   });
 });
