@@ -41,11 +41,37 @@
   float: left;
   box-sizing: border-box; }
 
+
+/* For devices smaller than 400px */
+@media (max-width: 399px) {
+  #monsterStats {
+    text-align: center !important;
+  }
+  
+  #searchWrapper {
+    text-align: center !important;
+  }
+
+  #searchBar {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
+}
+
 /* For devices larger than 400px */
 @media (min-width: 400px) {
   .container {
     width: 85%;
     padding: 0; }
+
+  #stats {
+    text-align: center;
+  }
+
+  #monsterStats {
+    display: inline-block;
+    text-align: left !important;
+  }
 }
 
 /* For devices larger than 550px */
