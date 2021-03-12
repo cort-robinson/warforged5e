@@ -369,6 +369,12 @@ form {
   float: right; }
 .u-pull-left {
   float: left; }
+.u-center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+.u-text-center {
+  text-align: center !important; }
 
 
 /* Misc
