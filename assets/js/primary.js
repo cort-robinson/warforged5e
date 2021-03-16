@@ -9,9 +9,9 @@ $(document).ready(function () {
 
   document.addEventListener('click', function (event) {
     if (event.target.matches('button')) {
-      event.target.focus()
+      event.target.focus();
     }
-  })
+  });
 
   searchBar.addEventListener('keyup', (e) => {
     // Search bar function - listens to key strokes
@@ -41,13 +41,13 @@ $(document).ready(function () {
       })
       .join('');
     $('#monstersList').html(htmlString);
-      $('.addMonster').each((index, element) => {
-          let monsterId = $(element).attr("id")
-          console.log(element)
-          element.addEventListener('click', () => {
-              addMonster(monsterId)
-          })
-      })
+    $('.addMonster').each((index, element) => {
+      let monsterId = $(element).attr('id');
+      console.log(element);
+      element.addEventListener('click', () => {
+        addMonster(monsterId);
+      });
+    });
   };
 
   const displaySelected = (monstersObjs) => {
@@ -99,7 +99,7 @@ $(document).ready(function () {
       monstersObjs.push(json);
       displaySelected(monstersObjs);
     });
-  }
+  };
 
   $('#monstersSelected').on('click', '.displayStats', () => {
     $.when(
