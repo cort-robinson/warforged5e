@@ -20,3 +20,7 @@ table#editable {
     margin-left: auto;
     margin-right: auto;
 }
+
+#addMonster {
+    cursor: pointer;
+}
