@@ -89,7 +89,7 @@ $(document).ready(function () {
     $.when(
       $.getJSON(
         'https://www.dnd5eapi.co/api/monsters/' +
-          $(this.activeElement).attr('id')
+          monsterId
       )
     ).done(function (json) {
       json.initiative = 'Roll for it!';
