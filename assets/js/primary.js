@@ -74,7 +74,7 @@ $(document).ready(function () {
 
   loadMonsters(); // Call loadMonsters to initiate
 
-  addMonster = (index) => {
+  const addMonster = (index) => {
     console.log(index);
     $.when(
       $.getJSON(
