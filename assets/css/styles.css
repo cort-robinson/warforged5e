@@ -8,13 +8,17 @@
     text-decoration: none;
 }
 
-.dropdown-content {
+.hide {
     display: none;
 }
 
-.dropdown:focus-within .dropdown-content {
+.show {
     display: block;
 }
+
+/* .dropdown:focus-within .dropdown-content {
+    display: block;
+} */
 
 table#editable {
     margin-left: auto;

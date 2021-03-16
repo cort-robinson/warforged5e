@@ -48,7 +48,8 @@
                 <h1 class="u-text-center">Monsters</h1>
                 <div class="dropdown" id="searchWrapper">
                     <input class="dropbtn u-text-center" type="text" name="searchBar" id="searchBar" placeholder="Search for monsters" />
-                        <ul class="dropdown-content" id="monstersList"></ul>
+                    <button id="togglebtn" class="button-primary" onclick="toggleButton()">Show Monsters</button>
+                        <ul class="hide" id="monstersList"></ul>
                 </div>
             </div>
             <div class="six columns u-text-center" id="selectedMonsters">
@@ -79,6 +80,13 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="assets/js/primary.js"></script>
+    <script>
+        const toggleButton = () => {
+            console.log('test');
+            $('#monstersList').toggleClass('show');
+            $('#togglebtn').text($('#togglebtn').text() == 'Hide Monsters' ? 'Show Monsters' : 'Hide Monsters');
+        }
+    </script>
 </body>
 
 </html>

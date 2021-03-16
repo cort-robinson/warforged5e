@@ -43,7 +43,6 @@ $(document).ready(function () {
     $('#monstersList').html(htmlString);
     $('.addMonster').each((index, element) => {
       let monsterId = $(element).attr('id');
-      console.log(element);
       element.addEventListener('click', () => {
         addMonster(monsterId);
       });
