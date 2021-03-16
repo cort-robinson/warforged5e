@@ -7,6 +7,12 @@ $(document).ready(function () {
   let monsters = [];
   let monstersObjs = [];
 
+  document.addEventListener('click', function (event) {
+    if (event.target.matches('button')) {
+      event.target.focus()
+    }
+  })
+
   searchBar.addEventListener('keyup', (e) => {
     // Search bar function - listens to key strokes
     const searchString = e.target.value.toLowerCase();
