@@ -31,7 +31,7 @@ $(document).ready(function () {
     // Takes list from loadMonsters and outputs that into the html
     const htmlString = monsters
       .map((monster) => {
-        return `<li class="monster" style="list-style-type: none"><button class="addMonster" id=${monster.index}>${monster.name}</button></li>`;
+        return `<li class="monster" style="list-style-type: none"><button type="button" class="addMonster" id=${monster.index}>${monster.name}</button></li>`;
       })
       .join('');
     $('#monstersList').html(htmlString);
