@@ -84,8 +84,6 @@ $(document).ready(function () {
     $('#monsterStats').html(htmlString);
   };
 
-  loadMonsters(); // Call loadMonsters to initiate
-
   const addMonster = (monsterId) => {
     console.log(monsterId);
     $.when(
@@ -170,4 +168,5 @@ $(document).ready(function () {
       displaySelected(monstersObjs);
     });
   });
+  loadMonsters(); // Call loadMonsters to initiate
 });
