@@ -8,15 +8,20 @@
     text-decoration: none;
 }
 
-.dropdown-content {
-    display: none;
-}
-
-.dropdown:focus-within .dropdown-content {
-    display: block;
-}
-
 table#editable {
     margin-left: auto;
     margin-right: auto;
+}
+
+.dropdown-content {
+    display: none;
+    z-index: 1;
+}
+
+.dropdown-content button {
+    display: block;
+}
+
+.show {
+    display: block;
 }
