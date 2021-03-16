@@ -74,7 +74,18 @@ $(document).ready(function () {
 
   loadMonsters(); // Call loadMonsters to initiate
 
-  $('#monstersList').on('mousedown click', '.addMonster', () => {
+  $('#monstersList').on('blur', '.addMonster', function (e) {
+    let obj = $(this);
+
+    // Delay to allow click to execute
+    setTimeout(function () {
+      if (e.type == 'blur') {
+        console.log('waiting for click');
+      }
+    }, 250);
+  });
+
+  $('#monstersList').on('click', '.addMonster', () => {
     $.when(
       $.getJSON(
         'https://www.dnd5eapi.co/api/monsters/' +
