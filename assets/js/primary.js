@@ -74,6 +74,7 @@ $(document).ready(function () {
 
   loadMonsters(); // Call loadMonsters to initiate
 
+  $('.addMonster').css('cursor','pointer');
   $('#monstersList').on('click', '.addMonster', () => {
     $.when(
       $.getJSON(
