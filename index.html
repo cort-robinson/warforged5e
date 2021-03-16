@@ -47,7 +47,7 @@
             <div class="three columns">
                 <h1 class="u-text-center">Monsters</h1>
                 <div class="dropdown" id="searchWrapper">
-                    <input onclick="toggleShow()" class="dropbtn u-text-center" type="text" name="searchBar" id="searchBar" placeholder="Search for monsters" />
+                    <input class="dropbtn u-text-center" type="text" name="searchBar" id="searchBar" placeholder="Search for monsters" />
                         <ul class="dropdown-content" id="monstersList"></ul>
                 </div>
             </div>
@@ -80,8 +80,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="assets/js/primary.js"></script>
     <script>
-        function toggleShow() {
-            document.getElementById('monstersList').classList.toggle('show');
+        const focusButton = function () {
+            console.log('test focus');
+            this.focus();
+            console.log(document.activeElement);
         }
     </script>
 </body>

@@ -31,7 +31,7 @@ $(document).ready(function () {
     // Takes list from loadMonsters and outputs that into the html
     const htmlString = monsters
       .map((monster) => {
-        return `<li class="monster" style="list-style-type: none"><button class="addMonster" id=${monster.index}>${monster.name}</button></li>`;
+        return `<li class="monster" style="list-style-type: none"><button onclick="focusButton()" class="addMonster" id=${monster.index}>${monster.name}</button></li>`;
       })
       .join('');
     $('#monstersList').html(htmlString);
@@ -73,17 +73,6 @@ $(document).ready(function () {
   };
 
   loadMonsters(); // Call loadMonsters to initiate
-
-  $('#monstersList').on('blur', '.addMonster', function (e) {
-    let obj = $(this);
-
-    // Delay to allow click to execute
-    setTimeout(function () {
-      if (e.type == 'blur') {
-        console.log('waiting for click');
-      }
-    }, 250);
-  });
 
   $('#monstersList').on('click', '.addMonster', () => {
     $.when(
