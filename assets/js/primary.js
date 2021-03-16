@@ -74,7 +74,7 @@ $(document).ready(function () {
 
   loadMonsters(); // Call loadMonsters to initiate
 
-  $('body').on('click', '.addMonster', () => {
+  $('#monstersList').on('click', '.addMonster', () => {
     $.when(
       $.getJSON(
         'https://www.dnd5eapi.co/api/monsters/' +
