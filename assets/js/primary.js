@@ -41,6 +41,13 @@ $(document).ready(function () {
       })
       .join('');
     $('#monstersList').html(htmlString);
+      $('.addMonster').each((index, element) => {
+          let monsterId = $(element).attr("id")
+          console.log(element)
+          element.addEventListener('click', () => {
+              addMonster(monsterId)
+          })
+      })
   };
 
   const displaySelected = (monstersObjs) => {
@@ -80,7 +87,8 @@ $(document).ready(function () {
 
   loadMonsters(); // Call loadMonsters to initiate
 
-  $('#monstersList').on('click', '.addMonster', () => {
+  const addMonster = (monsterId) => {
+    console.log(monsterId);
     $.when(
       $.getJSON(
         'https://www.dnd5eapi.co/api/monsters/' +
@@ -91,7 +99,7 @@ $(document).ready(function () {
       monstersObjs.push(json);
       displaySelected(monstersObjs);
     });
-  });
+  }
 
   $('#monstersSelected').on('click', '.displayStats', () => {
     $.when(
