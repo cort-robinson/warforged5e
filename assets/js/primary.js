@@ -31,7 +31,7 @@ $(document).ready(function () {
     // Takes list from loadMonsters and outputs that into the html
     const htmlString = monsters
       .map((monster) => {
-        return `<li class="monster" style="list-style-type: none"><button class="addMonster" id=${monster.index} onclick="">${monster.name}</button></li>`;
+        return `<li class="monster" style="list-style-type: none"><button class="addMonster" id=${monster.index} onclick="addMonster('${monster.index}')">${monster.name}</button></li>`;
       })
       .join('');
     $('#monstersList').html(htmlString);
@@ -74,18 +74,19 @@ $(document).ready(function () {
 
   loadMonsters(); // Call loadMonsters to initiate
 
-  $('#monstersList').on('touchstart click', '.addMonster', () => {
+  addMonster = (index) => {
+    console.log(index);
     $.when(
       $.getJSON(
         'https://www.dnd5eapi.co/api/monsters/' +
-          $(this.activeElement).attr('id')
+          index
       )
     ).done(function (json) {
       json.initiative = 'Roll for it!';
       monstersObjs.push(json);
       displaySelected(monstersObjs);
     });
-  });
+  };
 
   $('#monstersSelected').on('click', '.displayStats', () => {
     $.when(
