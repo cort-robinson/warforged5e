@@ -31,7 +31,7 @@ $(document).ready(function () {
     // Takes list from loadMonsters and outputs that into the html
     const htmlString = monsters
       .map((monster) => {
-        return `<li class="monster" style="list-style-type: none"><button class="addMonster" id=${monster.index}>${monster.name}</button></li>`;
+        return `<li class="monster" style="list-style-type: none"><button class="addMonster" id=${monster.index} onclick="">${monster.name}</button></li>`;
       })
       .join('');
     $('#monstersList').html(htmlString);
@@ -74,7 +74,6 @@ $(document).ready(function () {
 
   loadMonsters(); // Call loadMonsters to initiate
 
-  $('.addMonster').css('cursor','pointer');
   $('#monstersList').on('click', '.addMonster', () => {
     $.when(
       $.getJSON(
