@@ -80,6 +80,10 @@ $(document).ready(function () {
 
   loadMonsters(); // Call loadMonsters to initiate
 
+  $('#monstersList').on('blur', '.addMonster', (event) => {
+    setTimeout(function() {}, 1000);
+  })
+
   $('#monstersList').on('click', '.addMonster', () => {
     $.when(
       $.getJSON(
