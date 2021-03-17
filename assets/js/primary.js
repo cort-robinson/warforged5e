@@ -68,7 +68,16 @@ $(document).ready(function () {
       })
       .join('');
     $('#monstersSelected').html(htmlString);
-    console.log(monstersObjs);
+    $('.displayStats').each((index, element) => {
+      element.addEventListener('click', () => {
+        let monster = $(element).attr('id');
+        $.when(
+          $.getJSON('https://www.dnd5eapi.co/api/monsters/' + monster)
+        ).done(function (json) {
+          displayStats(json);
+        });
+      });
+    });
   };
 
   const displayStats = (monster) => {
@@ -85,29 +94,14 @@ $(document).ready(function () {
   };
 
   const addMonster = (monsterId) => {
-    console.log(monsterId);
-    $.when(
-      $.getJSON(
-        'https://www.dnd5eapi.co/api/monsters/' +
-          monsterId
-      )
-    ).done(function (json) {
-      json.initiative = 'Roll for it!';
-      monstersObjs.push(json);
-      displaySelected(monstersObjs);
-    });
+    $.when($.getJSON('https://www.dnd5eapi.co/api/monsters/' + monsterId)).done(
+      function (json) {
+        json.initiative = 'Roll for it!';
+        monstersObjs.push(json);
+        displaySelected(monstersObjs);
+      }
+    );
   };
-
-  $('#monstersSelected').on('click', '.displayStats', () => {
-    $.when(
-      $.getJSON(
-        'https://www.dnd5eapi.co/api/monsters/' +
-          $(this.activeElement).attr('id')
-      )
-    ).done(function (json) {
-      displayStats(json);
-    });
-  });
 
   $('#monstersSelected').on('click', '.removeMonster', () => {
     const index = parseInt($(this.activeElement).attr('id'), 10);
