@@ -134,7 +134,11 @@ $(document).ready(function () {
     });
 
     $('.initiative').each((index, current) => {
-      let newValue = parseInt($(current).html());
+      if (current === "Roll for it!") {
+        newValue = "Roll for it!"
+      } else {
+        let newValue = parseInt($(current).html());
+      }
       let monsterIdx = $(current).attr('id');
 
       if (newValue !== monstersObjs[monsterIdx].initiative) {
