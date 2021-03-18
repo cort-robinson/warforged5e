@@ -24,3 +24,7 @@ table#editable {
     margin-left: auto;
     margin-right: auto;
 }
+
+#headerLogo {
+    width: 25%;
+}
