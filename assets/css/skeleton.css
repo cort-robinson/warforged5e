@@ -42,7 +42,7 @@
   box-sizing: border-box; }
 
 
-/* For devices smaller than 400px */
+/* For devices smaller than 800px */
 @media (max-width: 800px) {
   #monsterStats {
     text-align: center !important;
@@ -65,7 +65,7 @@
     padding: 0; }
 }
 
-/* For devices larger than 550px */
+/* For devices larger than 800px */
 @media (min-width: 800px) {
 
   #stats {
