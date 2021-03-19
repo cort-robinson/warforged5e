@@ -28,3 +28,18 @@ table#editable {
 #headerLogo {
     width: 25%;
 }
+
+#aboutlink:first-letter, #aboutlink {
+    text-decoration: none;
+    font-size: .6em;
+    color: #e03e43;
+}
+
+#aboutlink:first-letter {
+    font-size: 130%;
+}
+
+@media (min-width: 550px) {
+#aboutlink:first-letter, #aboutlink {
+    font-size: 1.6em; }
+}

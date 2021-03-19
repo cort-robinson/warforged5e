@@ -43,7 +43,7 @@
 
 
 /* For devices smaller than 400px */
-@media (max-width: 399px) {
+@media (max-width: 800px) {
   #monsterStats {
     text-align: center !important;
   }
@@ -63,6 +63,10 @@
   .container {
     width: 85%;
     padding: 0; }
+}
+
+/* For devices larger than 550px */
+@media (min-width: 800px) {
 
   #stats {
     text-align: center;
@@ -72,10 +76,6 @@
     display: inline-block;
     text-align: left !important;
   }
-}
-
-/* For devices larger than 550px */
-@media (min-width: 550px) {
   .container {
     width: 80%; }
   .column,
