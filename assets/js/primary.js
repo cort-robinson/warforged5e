@@ -50,18 +50,19 @@ $(document).ready(function () {
   };
 
   const sortObjs = () => {
-    const sortByMapped = map => compareFn => (a,b) => compareFn(map(a),map(b));
-    const flipComparison = fn => (a,b) => -fn(a,b);
-    const byValue = (a,b) => b - a;
-    const byValueDex = (a,b) => a - b;
-    
-    const byInit = sortByMapped(e => e.initiative)(byValue);
-    const byDex = sortByMapped(e => e.dexterity)(flipComparison(byValueDex));
-    
-    const sortByFlattened = fns => (a,b) => 
-      fns.reduce((acc, fn) => acc || fn(a,b), 0);
-    
-    const byInitDex = sortByFlattened([byInit,byDex]);
+    const sortByMapped = (map) => (compareFn) => (a, b) =>
+      compareFn(map(a), map(b));
+    const flipComparison = (fn) => (a, b) => -fn(a, b);
+    const byValue = (a, b) => b - a;
+    const byValueDex = (a, b) => a - b;
+
+    const byInit = sortByMapped((e) => e.initiative)(byValue);
+    const byDex = sortByMapped((e) => e.dexterity)(flipComparison(byValueDex));
+
+    const sortByFlattened = (fns) => (a, b) =>
+      fns.reduce((acc, fn) => acc || fn(a, b), 0);
+
+    const byInitDex = sortByFlattened([byInit, byDex]);
     monstersObjs.sort(byInitDex);
   };
 
@@ -98,15 +99,99 @@ $(document).ready(function () {
 
   const displayStats = (monster) => {
     // Displays MonsterObjs list
-    const htmlString = `<li class="monsterStats">Monster: ${monster.name}</li>
-        <li class="monsterStats">HP: ${monster.hit_points}</li>
-        <li class="monsterStats">Charisma: ${monster.charisma}</li>
-        <li class="monsterStats">Constitution: ${monster.constitution}</li>
-        <li class="monsterStats">Dexterity: ${monster.dexterity}</li>
-        <li class="monsterStats">Intelligence: ${monster.intelligence}</li>
-        <li class="monsterStats">Strength: ${monster.strength}</li>
-        <li class="monsterStats">Wisdom: ${monster.wisdom}</li>`;
-    $('#monsterStats').html(htmlString);
+    const speedString = Object.keys(monster.speed)
+      .map((speed) => `${speed}: ${monster.speed[speed]}`)
+      .join(', ');
+    const damageImmunityString = Object.values(monster.damage_immunities).join(
+      ', '
+    );
+    const conditionImmunityString = Object.keys(monster.condition_immunities)
+      .map((immunity) => monster.condition_immunities[immunity].index)
+      .join(', ');
+    const sensesString = Object.keys(monster.senses)
+      .map((sense) => `${sense}: ${monster.senses[sense]}`)
+      .join(', ');
+    const htmlString = [];
+    htmlString.push(`<stat-block>
+    <creature-heading>
+      <h1>${monster.name}</h1>
+      <h2>${monster.size} ${monster.type}, ${monster.alignment}</h2>
+    </creature-heading>
+
+    <top-stats>
+      <property-line>
+        <h4>Armor Class:</h4>
+        <br />
+        <p>${monster.armor_class}</p>
+      </property-line>
+      <property-line>
+        <h4>Hit Points:</h4>
+        <br />
+        <p>${monster.hit_points} ${monster.hit_dice}</p>
+      </property-line>
+      <property-line>
+        <h4>Speed:</h4>
+        <br />
+        <p>${speedString}</p>
+      </property-line>
+
+      <abilities-block data-str="${monster.strength}"
+                       data-dex="${monster.dexterity}"
+                       data-con="${monster.constitution}"
+                       data-int="${monster.intelligence}"
+                       data-wis="${monster.wisdom}"
+                       data-cha="${monster.charisma}"></abilities-block>
+
+      <property-line>
+        <h4>Damage Immunities:</h4>
+        <p>${damageImmunityString}</p>
+      </property-line>
+      <property-line>
+        <h4>Condition Immunities:</h4>
+        <p>${conditionImmunityString}</p>
+      </property-line>
+      <property-line>
+        <h4>Senses:</h4>
+        <p>${sensesString}</p>
+      </property-line>
+      <property-line>
+        <h4>Languages:</h4>
+        <p>${monster.languages}</p>
+      </property-line>
+      <property-line>
+        <h4>Challenge:</h4>
+        <p>${monster.challenge_rating} (${monster.xp}xp)</p>
+      </property-line>
+    </top-stats>`);
+
+    for (ability of monster.special_abilities) {
+        htmlString.push(
+            `<property-block>
+                <h4>${ability.name}.</h4>
+                <br />
+                <p>${ability.desc}</p>
+            </property-block>`);
+    };
+
+    htmlString.push(`<h3>Actions</h3>`);
+
+    for (action of monster.actions) {
+      htmlString.push(
+          `<property-block>
+              <h4>${action.name}.</h4>
+              <br />
+              <p>${action.desc}</p>
+          </property-block>`);
+    };
+    $('#monsterStats').html(htmlString.join(''));
+    // `<li class="monsterStats">Monster: ${monster.name}</li>
+    //     <li class="monsterStats">HP: ${monster.hit_points}</li>
+    //     <li class="monsterStats">Charisma: ${monster.charisma}</li>
+    //     <li class="monsterStats">Constitution: ${monster.constitution}</li>
+    //     <li class="monsterStats">Dexterity: ${monster.dexterity}</li>
+    //     <li class="monsterStats">Intelligence: ${monster.intelligence}</li>
+    //     <li class="monsterStats">Strength: ${monster.strength}</li>
+    //     <li class="monsterStats">Wisdom: ${monster.wisdom}</li>`
   };
 
   const addMonster = (monsterId) => {
