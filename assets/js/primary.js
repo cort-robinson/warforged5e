@@ -49,6 +49,22 @@ $(document).ready(function () {
     });
   };
 
+  const sortObjs = () => {
+    const sortByMapped = map => compareFn => (a,b) => compareFn(map(a),map(b));
+    const flipComparison = fn => (a,b) => -fn(a,b);
+    const byValue = (a,b) => b - a;
+    const byValueDex = (a,b) => a - b;
+    
+    const byInit = sortByMapped(e => e.initiative)(byValue);
+    const byDex = sortByMapped(e => e.dexterity)(flipComparison(byValueDex));
+    
+    const sortByFlattened = fns => (a,b) => 
+      fns.reduce((acc, fn) => acc || fn(a,b), 0);
+    
+    const byInitDex = sortByFlattened([byInit,byDex]);
+    monstersObjs.sort(byInitDex);
+  };
+
   const displaySelected = (monstersObjs) => {
     // Displays MonsterObjs list
     // console.log(monstersObjs); // temporary command for testing purposes
@@ -98,6 +114,7 @@ $(document).ready(function () {
       function (json) {
         json.initiative = 'Roll for it!';
         monstersObjs.push(json);
+        updateObjs();
         displaySelected(monstersObjs);
       }
     );
@@ -116,14 +133,15 @@ $(document).ready(function () {
         Math.floor(Math.random() * 20) +
         1;
     });
-    monstersObjs.sort((a, b) => (a.initiative < b.initiative ? 1 : -1));
+    updateObjs();
+    sortObjs();
     monstersObjs.forEach(function (item, index) {
       item.id = index;
     });
     displaySelected(monstersObjs);
   });
 
-  $('.update').on('click', () => {
+  const updateObjs = () => {
     $('.name').each((index, current) => {
       let newValue = $(current).html();
       let monsterIdx = $(current).attr('id');
@@ -134,14 +152,13 @@ $(document).ready(function () {
     });
 
     $('.initiative').each((index, current) => {
-      if (current === "Roll for it!") {
-        newValue = "Roll for it!"
-      } else {
-        let newValue = parseInt($(current).html());
-      }
+      let newValue = parseInt($(current).html());
       let monsterIdx = $(current).attr('id');
 
-      if (newValue !== monstersObjs[monsterIdx].initiative) {
+      if (
+        newValue !== monstersObjs[monsterIdx].initiative &&
+        $(current).html() !== 'Roll for it!'
+      ) {
         monstersObjs[monsterIdx].initiative = newValue;
       }
     });
@@ -162,9 +179,13 @@ $(document).ready(function () {
       if (newValue !== monstersObjs[monsterIdx].armor_class) {
         monstersObjs[monsterIdx].armor_class = newValue;
       }
-      monstersObjs.sort((a, b) => (a.initiative < b.initiative ? 1 : -1));
-      displaySelected(monstersObjs);
     });
+  };
+
+  $('.update').on('click', () => {
+    updateObjs();
+    sortObjs();
+    displaySelected(monstersObjs);
   });
   loadMonsters(); // Call loadMonsters to initiate
 });
