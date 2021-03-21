@@ -102,96 +102,148 @@ $(document).ready(function () {
     const speedString = Object.keys(monster.speed)
       .map((speed) => `${speed}: ${monster.speed[speed]}`)
       .join(', ');
-    const damageImmunityString = Object.values(monster.damage_immunities).join(
-      ', '
-    );
+    const damageImmunityString = Object.values(monster.damage_immunities).join(', ');
     const conditionImmunityString = Object.keys(monster.condition_immunities)
-      .map((immunity) => monster.condition_immunities[immunity].index)
-      .join(', ');
+      .map((immunity) => monster.condition_immunities[immunity].index).join(', ');
     const sensesString = Object.keys(monster.senses)
-      .map((sense) => `${sense}: ${monster.senses[sense]}`)
-      .join(', ');
+      .map((sense) => `${sense}: ${monster.senses[sense]}`).join(', ');
     const htmlString = [];
-    htmlString.push(`<stat-block>
-    <creature-heading>
+
+    htmlString.push(`<div class="stat-block u-text-center">
+	<div class="section-left">
+		<div class="creature-heading">
       <h1>${monster.name}</h1>
       <h2>${monster.size} ${monster.type}, ${monster.alignment}</h2>
-    </creature-heading>
-
-    <top-stats>
-      <property-line>
-        <h4>Armor Class:</h4>
-        <br />
+		</div> <!-- creature heading -->
+		<svg height="5" width="100%" class="tapered-rule">
+	    <polyline points="0,0 400,2.5 0,5"></polyline>
+	  </svg>
+		<div class="top-stats">
+			<div class="property-line first">
+				<h4>Armor Class:&nbsp;</h4>
         <p>${monster.armor_class}</p>
-      </property-line>
-      <property-line>
-        <h4>Hit Points:</h4>
-        <br />
-        <p>${monster.hit_points} ${monster.hit_dice}</p>
-      </property-line>
-      <property-line>
-        <h4>Speed:</h4>
-        <br />
+			</div> <!-- property line -->
+			<div class="property-line">
+				<h4>Hit Points:&nbsp;</h4>
+        <p>  ${monster.hit_points} ${monster.hit_dice}</p>
+			</div> <!-- property line -->
+			<div class="property-line last">
+				<h4>Speed:&nbsp</h4>
         <p>${speedString}</p>
-      </property-line>
-
-      <abilities-block data-str="${monster.strength}"
-                       data-dex="${monster.dexterity}"
-                       data-con="${monster.constitution}"
-                       data-int="${monster.intelligence}"
-                       data-wis="${monster.wisdom}"
-                       data-cha="${monster.charisma}"></abilities-block>
-
-      <property-line>
-        <h4>Damage Immunities:</h4>
-        <p>${damageImmunityString}</p>
-      </property-line>
-      <property-line>
-        <h4>Condition Immunities:</h4>
-        <p>${conditionImmunityString}</p>
-      </property-line>
-      <property-line>
-        <h4>Senses:</h4>
-        <p>${sensesString}</p>
-      </property-line>
-      <property-line>
-        <h4>Languages:</h4>
-        <p>${monster.languages}</p>
-      </property-line>
-      <property-line>
-        <h4>Challenge:</h4>
-        <p>${monster.challenge_rating} (${monster.xp}xp)</p>
-      </property-line>
-    </top-stats>`);
+			</div> <!-- property line -->
+			<svg height="5" width="100%" class="tapered-rule">
+	    <polyline points="0,0 400,2.5 0,5"></polyline>
+	  </svg>
+			<div class="abilities">
+				<div class="ability-strength">
+					<h4>STR</h4>
+					<p>${monster.strength}</p>
+				</div> <!-- ability strength -->
+				<div class="ability-dexterity">
+					<h4>DEX</h4>
+					<p>${monster.dexterity}</p>
+				</div> <!-- ability dexterity -->
+				<div class="ability-constitution">
+					<h4>CON</h4>
+					<p>${monster.constitution}</p>
+				</div> <!-- ability constitution -->
+				<div class="ability-intelligence">
+					<h4>INT</h4>
+					<p>${monster.intelligence}</p>
+				</div> <!-- ability intelligence -->
+				<div class="ability-wisdom">
+					<h4>WIS</h4>
+					<p>${monster.wisdom}</p>
+				</div> <!-- ability wisdom -->
+				<div class="ability-charisma">
+					<h4>CHA</h4>
+					<p>${monster.charisma}</p>
+				</div> <!-- ability charisma -->
+			</div> <!-- abilities -->
+			<svg height="5" width="100%" class="tapered-rule">
+	    <polyline points="0,0 400,2.5 0,5"></polyline>
+	  </svg>
+			<div class="property-line first">
+				<h4>Damage Immunities:</h4>
+        <br />
+				<p>${damageImmunityString}</p>
+			</div> <!-- property line -->
+			<div class="property-line">
+				<h4>Condition Immunities:</h4>
+        <br />
+				<p>${conditionImmunityString}</p>
+			</div> <!-- property line -->
+			<div class="property-line">
+				<h4>Senses:</h4>
+        <br />
+				<p>${sensesString}</p>
+			</div> <!-- property line -->
+			<div class="property-line">
+				<h4>Languages:</h4>
+        <br />
+				<p>${monster.languages}</p>
+			</div> <!-- property line -->
+			<div class="property-line last">
+				<h4>Challenge:</h4>
+        <br />
+				<p>${monster.challenge_rating} (${monster.xp}xp)</p>
+			</div> <!-- property line -->
+		</div> <!-- top stats -->
+		<svg height="5" width="100%" class="tapered-rule">
+	    <polyline points="0,0 400,2.5 0,5"></polyline>
+	  </svg>`);
 
     for (ability of monster.special_abilities) {
-        htmlString.push(
-            `<property-block>
-                <h4>${ability.name}.</h4>
-                <br />
-                <p>${ability.desc}</p>
-            </property-block>`);
-    };
+      htmlString.push(
+        `<div class="property-block">
+          <h4>${ability.name}</h4>
+          <br />
+          <p>${ability.desc}</p>
+        </div> <!-- property block -->`
+      );
+    }
 
-    htmlString.push(`<h3>Actions</h3>`);
+    htmlString.push(`
+      </div> <!-- section left -->
+      <div class="section-right">
+      <div class="actions">
+			<h3>Actions</h3>`);
 
     for (action of monster.actions) {
       htmlString.push(
-          `<property-block>
-              <h4>${action.name}.</h4>
-              <br />
-              <p>${action.desc}</p>
-          </property-block>`);
-    };
+        `<div class="property-block">
+				<h4>${action.name}</h4>
+        <br />
+				<p>${action.desc}</p>
+			</div> <!-- property block -->`
+      );
+    }
+
+    if (monster.legendary_actions) {
+      htmlString.push(
+        `</div> <!-- actions -->
+      <div class="actions">
+        <h3>Legendary Actions</h3>`
+      );
+
+      for (action of monster.legendary_actions) {
+        htmlString.push(
+          `<div class="property-block">
+          <h4>${action.name}</h4>
+          <br />
+          <p>${action.desc}</p>
+        </div> <!-- property block -->`
+        );
+      }
+    }
+
+    htmlString.push(
+      `</div> <!-- actions -->
+	    </div> <!-- section right -->
+      </div>`
+    );
+
     $('#monsterStats').html(htmlString.join(''));
-    // `<li class="monsterStats">Monster: ${monster.name}</li>
-    //     <li class="monsterStats">HP: ${monster.hit_points}</li>
-    //     <li class="monsterStats">Charisma: ${monster.charisma}</li>
-    //     <li class="monsterStats">Constitution: ${monster.constitution}</li>
-    //     <li class="monsterStats">Dexterity: ${monster.dexterity}</li>
-    //     <li class="monsterStats">Intelligence: ${monster.intelligence}</li>
-    //     <li class="monsterStats">Strength: ${monster.strength}</li>
-    //     <li class="monsterStats">Wisdom: ${monster.wisdom}</li>`
   };
 
   const addMonster = (monsterId) => {
