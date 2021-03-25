@@ -1,12 +1,14 @@
-/*
-primary.js - main js file
-*/
+// Houses all Javascript for index.html
 
 $(document).ready(function () {
+  // Searchbar variable
   const searchBar = document.getElementById('searchBar');
+  // Array of monsters loaded from search results
   let monsters = [];
+  // Array of monster objects selected from monsters by user for encounter table
   let monstersObjs = [];
 
+  // Forces browsers to adopt Chrome like behavior for focus on button elements
   document.addEventListener('click', function (event) {
     if (event.target.matches('button')) {
       event.target.focus();
@@ -50,6 +52,7 @@ $(document).ready(function () {
   };
 
   const sortObjs = () => {
+    // Sorting function - sorts by final initiative and uses monsterObj.dexterity value as tiebreaker
     const sortByMapped = (map) => (compareFn) => (a, b) =>
       compareFn(map(a), map(b));
     const flipComparison = (fn) => (a, b) => -fn(a, b);
@@ -68,7 +71,6 @@ $(document).ready(function () {
 
   const displaySelected = (monstersObjs) => {
     // Displays MonsterObjs list
-    // console.log(monstersObjs); // temporary command for testing purposes
     monstersObjs.forEach(function (item, index) {
       item.id = index;
     });
@@ -98,15 +100,19 @@ $(document).ready(function () {
   };
 
   const displayStats = (monster) => {
-    // Displays MonsterObjs list
+    // Generates/displays selected monster object's statblock
     const speedString = Object.keys(monster.speed)
       .map((speed) => `${speed}: ${monster.speed[speed]}`)
       .join(', ');
-    const damageImmunityString = Object.values(monster.damage_immunities).join(', ');
+    const damageImmunityString = Object.values(monster.damage_immunities).join(
+      ', '
+    );
     const conditionImmunityString = Object.keys(monster.condition_immunities)
-      .map((immunity) => monster.condition_immunities[immunity].index).join(', ');
+      .map((immunity) => monster.condition_immunities[immunity].index)
+      .join(', ');
     const sensesString = Object.keys(monster.senses)
-      .map((sense) => `${sense}: ${monster.senses[sense]}`).join(', ');
+      .map((sense) => `${sense}: ${monster.senses[sense]}`)
+      .join(', ');
     const htmlString = [];
 
     htmlString.push(`<div class="stat-block u-text-center">
@@ -247,6 +253,7 @@ $(document).ready(function () {
   };
 
   const addMonster = (monsterId) => {
+    // Adds monster to MonsterObjs
     $.when($.getJSON('https://www.dnd5eapi.co/api/monsters/' + monsterId)).done(
       function (json) {
         json.initiative = 'Roll for it!';
@@ -257,12 +264,14 @@ $(document).ready(function () {
     );
   };
 
+  // Removes monster from MonsterObjs on .removeMonster element click
   $('#monstersSelected').on('click', '.removeMonster', () => {
     const index = parseInt($(this.activeElement).attr('id'), 10);
     monstersObjs.splice(index, 1);
     displaySelected(monstersObjs);
   });
 
+  // Calculates initiative for each object in monsterObjs when .initiative roll element is clicked
   $('#selectedMonsters').on('click', '.initiativeRoll', () => {
     monstersObjs.forEach(function (item, index) {
       item.initiative =
@@ -278,8 +287,10 @@ $(document).ready(function () {
     displaySelected(monstersObjs);
   });
 
+  // Updates monstersObjs objects with values from encounter table
   const updateObjs = () => {
     $('.name').each((index, current) => {
+      // updates name values
       let newValue = $(current).html();
       let monsterIdx = $(current).attr('id');
 
@@ -289,6 +300,7 @@ $(document).ready(function () {
     });
 
     $('.initiative').each((index, current) => {
+      // updates initiative values
       let newValue = parseInt($(current).html());
       let monsterIdx = $(current).attr('id');
 
@@ -301,6 +313,7 @@ $(document).ready(function () {
     });
 
     $('.hit_points').each((index, current) => {
+      // updates hit_points values
       let newValue = parseInt($(current).html());
       let monsterIdx = $(current).attr('id');
 
@@ -310,6 +323,7 @@ $(document).ready(function () {
     });
 
     $('.armor_class').each((index, current) => {
+      // updates armor_class values
       let newValue = parseInt($(current).html());
       let monsterIdx = $(current).attr('id');
 
@@ -319,10 +333,12 @@ $(document).ready(function () {
     });
   };
 
+  // Updates, sorts, then displays monstersObjs in encounter table on .update click
   $('.update').on('click', () => {
     updateObjs();
     sortObjs();
     displaySelected(monstersObjs);
   });
+
   loadMonsters(); // Call loadMonsters to initiate
 });

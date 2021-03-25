@@ -1,3 +1,5 @@
+// Houses all Javascript for about.html
+
 $(document).ready(function() {
 
     // Variables
