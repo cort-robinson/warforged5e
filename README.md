@@ -1,5 +1,5 @@
 <div align="center" id="top"> 
-  <img src="./.github/app.gif" alt="Warforged5e" />
+  <img src="assets/images/headerLogo.png" alt="Warforged5e" />
 
   &#xa0;
 
