@@ -3,7 +3,7 @@
 
   &#xa0;
 
-  <!-- <a href="https://warforged5e.com">Live Site</a> -->
+  <a href="https://warforged5e.com">Live Site</a>
 </div>
 
 <h1 align="center">Warforged5e</h1>
@@ -14,8 +14,6 @@
   <img alt="Github language count" src="https://img.shields.io/github/languages/count/cort-robinson/warforged5e?color=56BEB8">
 
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/cort-robinson/warforged5e?color=56BEB8">
-
-  <img alt="License" src="https://img.shields.io/github/license/cort-robinson/warforged5e?color=56BEB8">
 
   <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/cort-robinson/warforged5e?color=56BEB8" /> -->
 
@@ -36,7 +34,7 @@
   <a href="#dart-about">About</a> &#xa0; | &#xa0; 
   <a href="#sparkles-features">Features</a> &#xa0; | &#xa0;
   <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
-  <a href="https://github.com/cort-robinson" target="_blank">Author - Cort Robinson</a>
+  <a href="https://github.com/cort-robinson" target="_blank">Author - Cort Robinson</a> &#xa0; | &#xa0;
   <a href="https://github.com/jhs1790" target="_blank">Author - Jacob Scott</a>
 </p>
 
