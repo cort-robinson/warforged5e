@@ -64,6 +64,10 @@ The following tools were used in this project:
 - [Skeleton](https://nodejs.org/en/)
 - [jQuery](https://jquery.com/)
 
+## :memo: License ##
+
+This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
+
 
 Made with :heart: by <a href="https://github.com/cort-robinson" target="_blank">Cort Robinson</a> and <a href="https://github.com/jhs1790" target="_blank">Jacob Scott</a>
 
