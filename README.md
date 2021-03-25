@@ -48,6 +48,8 @@ Wizards of the Coast provide wonderful support for their games with manuals, gui
 
 "Roll for initiative!" - A classic turn of phrase for the dungeon master to announce combat, but instead of heralding a bout of heart pumping action, generally it announces a break as the dungeon master rolls initiative for all of his monsters and creates a turn order so his player can slot in. With Warforged5e, this ten minute or so chore becomes as simple as a few easy clicks!
 
+<img src="assets/images/headerLogo.png" alt="Warforged5e Screenshot" />
+
 ## :sparkles: Features ##
 
 :heavy_check_mark: Automated Initiative Rolls;\
