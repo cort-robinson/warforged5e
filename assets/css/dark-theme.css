@@ -31,6 +31,22 @@ table {
     border-color: #545b5e;
 }
 
+::-webkit-input-placeholder {
+    color: #b2aba1;
+}
+
+::-moz-placeholder {
+    color: #b2aba1;
+}
+
+:-ms-input-placeholder {
+    color: #b2aba1;
+}
+
+::-ms-input-placeholder {
+    color: #b2aba1;
+}
+
 ::placeholder {
     color: #b2aba1;
 }
@@ -63,6 +79,11 @@ select:-webkit-autofill {
     background-color: #181a1b;
 }
 
+::-moz-selection {
+    background-color: #f03333 !important;
+    color: #e8e6e3 !important;
+}
+
 ::selection {
     background-color: #f03333 !important;
     color: #e8e6e3 !important;
@@ -79,7 +100,8 @@ select:-webkit-autofill {
 span#closed_text>img[src^="https://www.gstatic.com/images/branding/googlelogo"],
 span[data-href^="https://www.hcaptcha.com/"]>#icon,
 embed[type="application/pdf"] {
-    filter: invert(100%) hue-rotate(180deg) contrast(90%) !important;
+    -webkit-filter: invert(100%) hue-rotate(180deg) contrast(90%) !important;
+            filter: invert(100%) hue-rotate(180deg) contrast(90%) !important;
 }
 
 /* Variables Style */
@@ -148,7 +170,8 @@ input[type="submit"],
 input[type="reset"],
 input[type="button"] {
     color: rgb(178, 172, 162);
-    text-decoration-color: initial;
+    -webkit-text-decoration-color: initial;
+            text-decoration-color: initial;
     background-color: transparent;
     border-color: rgb(67, 73, 76);
 }
@@ -248,7 +271,8 @@ hr {
 }
 
 .navBar a {
-    text-decoration-color: initial;
+    -webkit-text-decoration-color: initial;
+            text-decoration-color: initial;
 }
 
 /* Override Style */
@@ -256,6 +280,22 @@ hr {
     background-color: #7b5300 !important;
     border-color: #d8b013 !important;
     color: #f3e8c8 !important;
+}
+
+::-webkit-input-placeholder {
+    opacity: 0.5 !important;
+}
+
+::-moz-placeholder {
+    opacity: 0.5 !important;
+}
+
+:-ms-input-placeholder {
+    opacity: 0.5 !important;
+}
+
+::-ms-input-placeholder {
+    opacity: 0.5 !important;
 }
 
 ::placeholder {
