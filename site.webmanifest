@@ -3,18 +3,22 @@
     "short_name": "Warforged5e",
     "icons": [
         {
-            "src": "/android-chrome-192x192.png",
+            "src": "https://warforged5e.com/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "/android-chrome-256x256.png",
+            "src": "https://warforged5e.com/android-chrome-256x256.png",
             "sizes": "256x256",
             "type": "image/png"
         }
     ],
-    "start_url": "/index.html",
     "theme_color": "#181a1b",
     "background_color": "#181a1b",
-    "display": "standalone"
+    "display": "standalone",
+    "url": "https://warforged5e.com",
+    "manifestUrl": "https://warforged5e.com/site.webmanifest",
+    "lang": "",
+    "description": "Warforged5e is a tool made for dungeon masters, by dungeon masters. Starting is as easy as pulling it up, with no complicated organization trees or button combos. If you want to speed up the logistics of your table so your players can get to slaying the monsters, wooing the damsels, and saving the kingdom (or murderhoboing, whichever is their fancy) then Warfoged5e is what you’re looking for.",
+    "start_url": "/index.html"
 }
