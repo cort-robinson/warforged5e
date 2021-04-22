@@ -25,5 +25,5 @@
     "manifestUrl": "https://warforged5e.com/site.webmanifest",
     "lang": "en",
     "description": "Warforged5e is a tool made for dungeon masters, by dungeon masters. Starting is as easy as pulling it up, with no complicated organization trees or button combos. If you want to speed up the logistics of your table so your players can get to slaying the monsters, wooing the damsels, and saving the kingdom (or murderhoboing, whichever is their fancy) then Warfoged5e is what you’re looking for.",
-    "start_url": "/index.html"
+    "start_url": "/"
 }
