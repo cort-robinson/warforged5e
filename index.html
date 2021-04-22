@@ -1,101 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-
+  <head>
     <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Warforged5e</title>
-    <meta name="description" content="Warforged5e">
-    <meta name="author" content="Cort Robinson and Jacob Scott">
+    <meta name="description" content="Warforged5e" />
+    <meta name="author" content="Cort Robinson and Jacob Scott" />
 
     <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link
+      href="//fonts.googleapis.com/css?family=Raleway:400,300,600"
+      rel="stylesheet"
+      type="text/css"
+    />
 
     <!-- CSS and Favicons
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link rel="stylesheet" href="assets/css/normalize.css">
-    <link rel="stylesheet" href="assets/css/skeleton.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/stats.css">
-    <link rel="stylesheet" href="assets/css/dark-theme.css">
+    <link rel="stylesheet" href="assets/css/normalize.css" />
+    <link rel="stylesheet" href="assets/css/skeleton.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/stats.css" />
+    <link rel="stylesheet" href="assets/css/dark-theme.css" />
 
     <!-- Favicons
    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#941739">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#941739" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
 
-</head>
-
-<body>
-
+  <body>
     <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <div class="container">
-        <div class="row">
-            <div class="twelve columns">
-                <nav class="navbar" id="mainNavBar">
-                                <a href="index.html">
-                                    <img src="assets/images/headerLogo.png" class="u-max-full-width u-pull-left" id="headerLogo" alt="Warforged5e Logo">
-                                </a>
-                                <a class="u-pull-right" id="aboutlink" href="about.html">ABOUT</a>
-                </nav>
-            </div>
+      <div class="row">
+        <div class="twelve columns">
+          <nav class="navbar" id="mainNavBar">
+            <a href="index.html">
+              <img
+                src="assets/images/headerLogo.png"
+                class="u-max-full-width u-pull-left"
+                id="headerLogo"
+                alt="Warforged5e Logo"
+              />
+            </a>
+            <a class="u-pull-right" id="aboutlink" href="about.html">ABOUT</a>
+          </nav>
         </div>
-        <div class="row">
-            <div class="three columns">
-                <h1 class="u-text-center">Monsters</h1>
-                <div class="dropdown" id="searchWrapper">
-                    <input class="dropbtn u-text-center" type="text" name="searchBar" id="searchBar" placeholder="Search for monsters" />
-                    <button id="togglebtn" class="button-primary" onclick="toggleButton()">Show Monsters</button>
-                        <ul class="hide" id="monstersList"></ul>
-                </div>
-            </div>
-            <div class="six columns u-text-center" id="selectedMonsters">
-                <h1 class="">Encounter</h1>
-                <button class="initiativeRoll">Roll for Initiative!</button>
-                <button class="update">Sort</button>
-                <table id="editable">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Initiative</th>
-                            <th>HP</th>
-                            <th>AC</th>
-                            <th>Stats</th>
-                        </tr>
-                    </thead>
-                    <tbody id="monstersSelected">
-                    </tbody>
-                </table>
-            </div>
-            <div class="three columns" id="stats">
-                <h1 class="u-text-center">Stats</h1>
-                <div id="monsterStats"></div>
-            </div>
+      </div>
+      <div class="row">
+        <div class="three columns">
+          <h1 class="u-text-center">Monsters</h1>
+          <div class="dropdown" id="searchWrapper">
+            <input
+              class="dropbtn u-text-center"
+              type="text"
+              name="searchBar"
+              id="searchBar"
+              placeholder="Search for monsters"
+            />
+            <button
+              id="togglebtn"
+              class="button-primary"
+              onclick="toggleButton()"
+            >
+              Show Monsters
+            </button>
+            <ul class="hide" id="monstersList"></ul>
+          </div>
         </div>
+        <div class="six columns u-text-center" id="selectedMonsters">
+          <h1 class="">Encounter</h1>
+          <button class="initiativeRoll">Roll for Initiative!</button>
+          <button class="update">Sort</button>
+          <table id="editable">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Initiative</th>
+                <th>HP</th>
+                <th>AC</th>
+                <th>Stats</th>
+              </tr>
+            </thead>
+            <tbody id="monstersSelected"></tbody>
+          </table>
+        </div>
+        <div class="three columns" id="stats">
+          <h1 class="u-text-center">Stats</h1>
+          <div id="monsterStats"></div>
+        </div>
+      </div>
     </div>
     <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="assets/js/primary.js"></script>
     <script>
-        const toggleButton = () => {
-            $('#monstersList').toggleClass('show');
-            $('#togglebtn').text($('#togglebtn').text() == 'Hide Monsters' ? 'Show Monsters' : 'Hide Monsters');
-        }
+      const toggleButton = () => {
+        $('#monstersList').toggleClass('show');
+        $('#togglebtn').text(
+          $('#togglebtn').text() == 'Hide Monsters'
+            ? 'Show Monsters'
+            : 'Hide Monsters'
+        );
+      };
     </script>
-</body>
+    <!-- Offline Service Worker -->
+    <script type="module">
+      import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
 
+      const el = document.createElement('pwa-update');
+      document.body.appendChild(el);
+    </script>
+  </body>
 </html>
