@@ -1,5 +1,15 @@
-[{
-      "relation": ["delegate_permission/common.handle_all_urls"],
-      "target" : { "namespace": "android_app", "package_name": "com.warforged5e.twa",
-                   "sha256_cert_fingerprints": ["0E:D1:AE:0C:6A:D6:4C:C6:C4:BF:23:0C:49:C7:B9:6F:EB:22:C5:64:9C:1D:D1:19:40:36:54:9C:93:39:FE:EA"] }
-    }]
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.warforged5e.twa",
+            "sha256_cert_fingerprints": [
+                "0E:D1:AE:0C:6A:D6:4C:C6:C4:BF:23:0C:49:C7:B9:6F:EB:22:C5:64:9C:1D:D1:19:40:36:54:9C:93:39:FE:EA",
+                "21:2B:36:6A:F0:A8:C4:66:6B:61:FB:88:26:F6:09:5D:FA:F1:8D:00:BF:EC:D8:3C:08:24:43:3C:24:8F:16:38"
+            ]
+        }
+    }
+]
