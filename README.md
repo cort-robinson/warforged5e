@@ -3,7 +3,7 @@
 
   &#xa0;
 
-  <a href="https://warforged5e.com">Live Site</a>
+  <h1><a href="https://warforged5e.com">Click to go to webapp!</a></h1>
 </div>
 
 <h1 align="center">Warforged5e</h1>
