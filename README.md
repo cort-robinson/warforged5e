@@ -65,6 +65,14 @@ The following tools were used in this project:
 - [Skeleton](https://nodejs.org/en/)
 - [jQuery](https://jquery.com/)
 
+## About the Authors ##
+
+Cort Robinson:
+  Growing up in a military family, Cort has travelled all around the US. Throughout that time he developed a love and passion for technology and computer science. As a student at Holberton school of Computer Science, Cort has developed skills across a wide range of technologies and is always excited to expand his knowledge in to new areas.
+  
+Jacob Scott:
+  World traveller and beard extraordinair, Jacob is excited to bring all of his experiences to the software development space and make a mark in the creative gaming industy. With a degree and military history his interests naturally focus on this area, but his love of storytelling and good worksmanship in the space attracts his interests in many diverse projects. 
+
 ## :memo: License ##
 
 This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
