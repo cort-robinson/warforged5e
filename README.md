@@ -72,6 +72,9 @@ This project is under license from MIT. For more details, see the [LICENSE](LICE
 
 Made with :heart: by <a href="https://github.com/cort-robinson" target="_blank">Cort Robinson</a> and <a href="https://github.com/jhs1790" target="_blank">Jacob Scott</a>
 
+* **Cort Robinson** - [GitHub](https://github.com/cort-robinson), [Twitter](https://twitter.com/cort_robinson), [LinkedIn](https://www.linkedin.com/in/cort-robinson-4201b41a9/)
+* **Jacob Scott** - [GitHub](https://github.com/jhs1790)
+
 &#xa0;
 
 <a href="#top">Back to top</a>
